@@ -1,0 +1,155 @@
+* {
+  margin: 0;
+  border: none;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  font-size: 62.5%;
+}
+body {
+  background-color: #121214;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+  letter-spacing: -0.5px;
+}
+li {
+  list-style: none;
+}
+.wrapper {
+  max-width: 850px;
+  width: 90%;
+  background-color: #2a2634;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+h1 {
+  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+  margin-block: 1rem;
+  font-size: clamp(1.5rem, 3.3vw, 2.7rem);
+}
+
+.options__coin {
+  display: flex;
+}
+.options__coin input {
+  display: none;
+}
+.options__coin input[name='coin']:checked ~ label {
+  background-color: red;
+}
+.options__coin li {
+  width: 25%;
+  border-top: solid 2px #121214;
+  border-bottom: solid 2px #121214;
+  border-right: solid 2px #121214;
+  flex: 1;
+}
+.options__coin li:last-child {
+  border-right: none;
+}
+.options__coin label {
+  width: 100%;
+  display: inline-block;
+  padding-block: 0.5rem;
+  /* font-size: 2.2rem; */
+  /* font-size: 3.3vw; */
+  font-size: clamp(1.5rem, 3.3vw, 2.7rem);
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+}
+.option__value-initial {
+  width: 100%;
+  margin-top: 1.5rem;
+  height: 3.5rem;
+  border-block: solid 2px #121214;
+  border-radius: 0.5rem;
+  padding-inline: 1rem;
+  outline: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-size: clamp(1rem, 2.3vw, 1.9rem);
+}
+h2 {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: clamp(1.5rem, 3.3vw, 2.7rem);
+  color: #fff;
+  text-transform: uppercase;
+}
+table {
+  width: 100%;
+  color: #fff;
+  padding-inline: 1rem;
+  margin-top: 1rem;
+  border-collapse: collapse;
+}
+table th,
+table td {
+  border-top: 2px solid #121214;
+  border-right: 2px solid #121214;
+  padding-block: 0.5rem;
+  max-width: 25%;
+}
+table th:last-child,
+table td:last-child {
+  border-right: none;
+}
+table td {
+  text-align: center;
+  font-size: clamp(1rem, 2.3vw, 1.9rem);
+}
+table th {
+  font-size: clamp(1.5rem, 3.3vw, 2.7rem);
+  font-weight: 500;
+}
+.display-loading {
+  display: none;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  z-index: 2;
+  background-color: rgba(18, 18, 20, 0.7);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.display-loading span {
+  font-size: clamp(1.5rem, 3.3vw, 2.7rem);
+  color: #fff;
+  margin-bottom: 1.5rem;
+}
+.display-loading__animacao {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: solid red 8px;
+  animation: animacao infinite 0.8s linear;
+}
+@keyframes animacao {
+  0% {
+    transform: rotate(0);
+  }
+  10% {
+    border-inline: solid 8px red;
+  }
+  35% {
+    border-inline: solid 0px red;
+  }
+  65% {
+    border-inline: solid 0px red;
+  }
+  90% {
+    border-inline: solid 8px red;
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

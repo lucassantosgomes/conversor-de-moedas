@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Conversor de moedas</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1>conversor de moedas</h1>
+      <section class="options">
+        <ul class="options__coin">
+          <li>
+            <input type="radio" name="coin" id="real" checked />
+            <label for="real">REAL</label>
+          </li>
+          <li>
+            <input type="radio" name="coin" id="dolar" />
+            <label for="dolar">DOLAR</label>
+          </li>
+          <li>
+            <input type="radio" name="coin" id="euro" />
+            <label for="euro">EURO</label>
+          </li>
+          <li>
+            <input type="radio" name="coin" id="bitcoin" />
+            <label for="bitcoin">BTC</label>
+          </li>
+        </ul>
+        <input
+          type="number"
+          id="option__value-initial"
+          class="option__value-initial"
+          placeholder="adicione o valor em real"
+          onchange="()=>{console.log('ola')}"
+          value=""
+        />
+      </section>
+      <h2>valor em:</h2>
+      <table>
+        <tr>
+          <th>REAL</th>
+          <th>DOLAR</th>
+          <th>EURO</th>
+          <th>BTC</th>
+        </tr>
+        <tr>
+          <td id="valor-real">00</td>
+          <td id="valor-dolar">00</td>
+          <td id="valor-euro">00</td>
+          <td id="valor-btc">00</td>
+        </tr>
+      </table>
+    </div>
+    <div class="display-loading" id="display-loading">
+      <span>carregando dados...</span>
+      <div class="display-loading__animacao"></div>
+    </div>
+    <script src="./main.js"></script>
+  </body>
+</html>
