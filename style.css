@@ -125,6 +125,7 @@ table th {
   font-size: clamp(1.5rem, 3.3vw, 2.7rem);
   color: #fff;
   margin-bottom: 1.5rem;
+  text-align: center;
 }
 .display-loading__animacao {
   width: 80px;

@@ -74,7 +74,7 @@ function calculateConversion() {
   } else return;
   showResults(resultsConversion);
 }
-alert('ATENÇÃO: as conversões só são atuais quando o valor inicial é em real');
+// alert('ATENÇÃO: as conversões só são atuais quando o valor inicial é em real');
 inputValueInitial.addEventListener('keyup', calculateConversion);
 inputValueInitial.addEventListener('change', calculateConversion);
 document.getElementsByName('coin').forEach(element => {
@@ -82,17 +82,25 @@ document.getElementsByName('coin').forEach(element => {
 });
 
 showDisplayLoading();
-const cotacaoBrlApiUrl =
-  'https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL';
+
 let priceReal;
-fetch(cotacaoBrlApiUrl)
-  .then(res => res.json())
-  .then(res => {
-    priceReal = res;
+const getPricesBRL = async () => {
+  const priceBrlApiUrl =
+    'https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL';
+  try {
+    const response = await fetch(priceBrlApiUrl);
+    if (response.status >= 400) {
+      showDisplayLoading(
+        'Ocoreu um erro ao buscar os dado, favor tente atualizar a página'
+      );
+      return;
+    }
+    priceReal = await response.json();
     removeDisplayLoading();
-  })
-  .catch(e => {
+  } catch (error) {
     showDisplayLoading(
-      'Ocorreu um erro, verifique a conecção e atualize a página.'
+      'Ocoreu um erro ao buscar os dado, favor, tente atualizar a página'
     );
-  });
+  }
+};
+getPricesBRL();
